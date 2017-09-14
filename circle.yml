@@ -2,7 +2,7 @@ deployment:
   dockerhub:
     branch: master
     commands:
-      - $DOCKER_BUILD_TRIGGER
+      - $DOCKER_POST
 
 test:
   override:    
