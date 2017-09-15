@@ -12,6 +12,12 @@
 #            key_pattern: test-docker-ci-cd-deploy-{BRANCH}-{SHORT_COMMIT}
 #        deployment_group: NodeDeploymentGroup
 
+machine:
+  node:
+    version: 6.11.0
+  enviroment:
+    NODE_ENV: test
+    
 test:
   override:    
     - mocha
