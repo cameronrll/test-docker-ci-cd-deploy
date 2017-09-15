@@ -1,17 +1,23 @@
-deployment:
-  staging:
-    branch: master
-    codedeploy:
-      SimpleNode:
-        application_root: /src
-        region: eu-west-2
-        revision_location:
-          revision_type: S3
-          s3_location:
-            bucket: test-deploy-bucket-cam
-            key_pattern: test-docker-ci-cd-deploy-{BRANCH}-{SHORT_COMMIT}
-        deployment_group: NodeDeploymentGroup
+#deployment:
+#  staging:
+#    branch: master
+#    codedeploy:
+#      SimpleNode:
+#        application_root: /src
+#        region: eu-west-2
+#        revision_location:
+#          revision_type: S3
+#          s3_location:
+#            bucket: test-deploy-bucket-cam
+#            key_pattern: test-docker-ci-cd-deploy-{BRANCH}-{SHORT_COMMIT}
+#        deployment_group: NodeDeploymentGroup
 
 test:
   override:    
     - mocha
+
+deployment:
+  staging:
+    branch: master
+    commands:
+      - scripts/deploy_dev.sh

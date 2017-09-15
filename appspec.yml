@@ -1,2 +1,33 @@
 version: 0.0
 os: linux
+files:
+  - source: package.json
+  destination: /apps/test-node-deploy
+  - source: node_modules
+  destination: /apps/test-node-deploy/node_modules/
+  - source: views
+  destination: /apps/test-node-deploy/views
+  - source: app.js
+  destination: /apps/test-node-deploy
+  - source: scripts/test-node-deploy-server.conf
+  destination: /etc/supervisor/conf.d/
+
+permissions:
+  - object: /
+  pattern: "**"
+  owner: apps
+  group: test-node-deloy-apps
+
+hooks:
+  BeforeInstall:
+    - location: scripts/clean-deps.sh
+    runas: apps
+  AfterInstall:
+    - location: scripts/install-deps.sh
+    runas: apps
+  ApplicationStart:
+    - location: scripts/start.sh
+    runas: apps
+  ApplicationStop:
+    - location: scripts/stop.sh
+    runas: apps
