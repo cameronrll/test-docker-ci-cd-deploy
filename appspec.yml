@@ -19,9 +19,9 @@ permissions:
   group: test-node-deloy-apps
 
 hooks:
-  BeforeInstall:
-    - location: scripts/clean-deps.sh
-      runas: apps
+#  BeforeInstall:
+#    - location: scripts/clean-deps.sh
+#      runas: apps
   AfterInstall:
     - location: scripts/install-deps.sh
       runas: apps
