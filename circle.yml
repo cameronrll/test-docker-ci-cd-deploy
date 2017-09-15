@@ -10,7 +10,7 @@ deployment:
           s3_location:
             bucket: test-deploy-bucket-cam
             key_pattern: test-docker-ci-cd-deploy-{BRANCH}-{SHORT_COMMIT}
-        deployment_group: test-docker-depoy-group
+        deployment_group: NodeDeploymentGroup
 
 test:
   override:    
