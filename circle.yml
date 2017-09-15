@@ -17,7 +17,7 @@ machine:
     version: 6.11.0
   enviroment:
     NODE_ENV: test
-    
+
 test:
   override:    
     - mocha

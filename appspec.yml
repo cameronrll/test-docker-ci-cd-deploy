@@ -21,13 +21,14 @@ permissions:
 hooks:
   BeforeInstall:
     - location: scripts/clean-deps.sh
-    runas: apps
+      runas: apps
   AfterInstall:
     - location: scripts/install-deps.sh
-    runas: apps
+      runas: apps
   ApplicationStart:
     - location: scripts/start.sh
-    runas: apps
+      runas: apps
   ApplicationStop:
     - location: scripts/stop.sh
-    runas: apps
+      runas: apps
+
