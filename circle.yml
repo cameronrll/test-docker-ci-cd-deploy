@@ -2,7 +2,7 @@ deployment:
   staging:
     branch: master
     codedeploy:
-      appname-1234:
+      SimpleNode:
         application_root: /src
         region: eu-west-2
         revision_location:
