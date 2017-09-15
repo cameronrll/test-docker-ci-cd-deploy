@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-cd /apps/test-docker-ci-cd-deploy
+cd /apps/test-node-deploy
 nvm use
