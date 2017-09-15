@@ -1,8 +1,16 @@
 deployment:
-  dockerhub:
+  staging:
     branch: master
-    commands:
-      - $DOCKER_POST
+    codedeploy:
+      appname-1234:
+        application_root: /src
+        region: eu-west-2
+        revision_location:
+          revision_type: S3
+          s3_location:
+            bucket: test-deploy-bucket
+            key_pattern: test-docker-ci-cd-deploy-{BRANCH}-{SHORT_COMMIT}
+        deployment_group: test-docker-depoy-group
 
 test:
   override:    
