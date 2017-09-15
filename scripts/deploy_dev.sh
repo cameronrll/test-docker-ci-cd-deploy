@@ -2,7 +2,7 @@
 
 export AWS_CODE_DEPLOY_REGION=eu-west-2
 export AWS_CODE_DEPLOY_APPLICATION_NAME="testNodeDeploy"
-export AWS_CODE_DEPLOY_DEPLOYMENT_CONFIG_NAME=CodeDeployDefault.OneAtATime
+export AWS_CODE_DEPLOY_DEPLOYMENT_CONFIG_NAME=CodeDeployDefault.AllAtOnce
 export AWS_CODE_DEPLOY_DEPLOYMENT_GROUP_NAME="testNodeDevelopment"
 export AWS_CODE_DEPLOY_APP_SOURCE=$HOME/test-docker-ci-cd-deploy
 export AWS_CODE_DEPLOY_S3_FILENAME="test-node-deploy-${CIRCLE_BRANCH}-${CIRCLE_BUILD_NUM}"
