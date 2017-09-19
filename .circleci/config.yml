@@ -33,24 +33,17 @@ workflows:
     jobs:
       - build
       - hold:
+          filters:
+            branches:
+              only:
+                - master
           type: approval
           requires:
             - build
       - deploy_master:
+          filters:
+            branches:
+              only:
+                - master
           requires:
             - hold
-#      - hold:
-#        type: approval
-#        requires:
-#          - build
-#        filters:
-#          branches:
-#            only:
-#              - master
-#      - deploy_master:
-#          requires:
-#            - hold
-#          filters:
-#            branches:
-#              only:
-#                - master
