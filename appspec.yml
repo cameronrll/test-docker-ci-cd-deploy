@@ -2,13 +2,13 @@ version: 0.0
 os: linux
 
 files:
-  - source: ../Dockerfile
+  - source: Dockerfile
     destination: /apps/node-example
-  - source: ../package.json
+  - source: package.json
     destination: /apps/node-example
-  - source: ../app.js
+  - source: app.js
     destination: /apps/node-example
-  - source: ../views
+  - source: views
     destination: /apps/node-example/views
 
 hooks:
