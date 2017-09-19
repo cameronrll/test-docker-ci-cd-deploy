@@ -3,6 +3,8 @@
 #version: 0.0
 #os: linux
 #files:
+# TODO: move docker image to /apps folder
+# TODO: remember this is amazon linux and it uses yum or some shit (google)
 #  - source: package.json
 #    destination: /apps/test-node-deploy
 #  - source: node_modules
@@ -22,12 +24,14 @@
 
 #hooks:
 #  BeforeInstall:
+# TODO: install docker
 #    - location: scripts/clean-deps.sh
 #      runas: root
 #  AfterInstall:
 #    - location: scripts/install-deps.sh
 #      runas: root
 #  ApplicationStart:
+# TODO: run docker image
 #    - location: scripts/start.sh
 #      runas: root
 #  ApplicationStop:
