@@ -32,9 +32,13 @@ workflows:
   test-and-deploy:
     jobs:
       - build
-      - deploy_master:
+      - hold:
+          type: approval
           requires:
             - build
+      - deploy_master:
+          requires:
+            - hold
 #      - hold:
 #        type: approval
 #        requires:
