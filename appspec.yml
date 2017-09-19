@@ -1,6 +1,16 @@
 version: 0.0
 os: linux
 
+files:
+  - source: Dockerfile
+    detination: /apps/node-example
+  - source: package.json
+    destination: /apps/node-example
+  - source: app.js
+    destination: /apps/node-example
+  - source: views
+    destination: /apps/node-example/views
+
 hooks:
   #Install docker and start service
   BeforeInstall:
