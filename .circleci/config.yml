@@ -8,14 +8,14 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-        key: deps-cache-{{ checksum "package.json" }}
+          key: deps-cache-{{ checksum "package.json" }}
       - run:
-        name: Mocha tests
-        command: ./node_modules/.bin/mocha
+          name: Mocha tests
+          command: ./node_modules/.bin/mocha
       - save_cache:
-        key: deps-cache-{{ checksum "package.json" }}
-        paths:
-          - node_modules
+          key: deps-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
 
   deploy:
     working_directory: /src
@@ -24,10 +24,10 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-        key: deps-cache-{{ checksum "package.json" }}
+          key: deps-cache-{{ checksum "package.json" }}
       - run:
-        name: Deploy script
-        command: ./scripts/deploy_dev.sh
+          name: Deploy script
+          command: ./scripts/deploy_dev.sh
 
 workflows:
   version: 2
@@ -35,5 +35,5 @@ workflows:
     jobs:
       - build
       - deploy:
-        requires:
-          - build
+          requires:
+            - build
