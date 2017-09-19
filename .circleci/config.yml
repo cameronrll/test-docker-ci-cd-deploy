@@ -24,6 +24,7 @@ jobs:
   deploy:
     machine:
       enabled: true
+    working_directory: ~/circleci
     steps:
       - checkout
       - run:
