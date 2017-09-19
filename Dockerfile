@@ -1,4 +1,4 @@
-FROM node:8.5.0-alpine
+FROM node:8.5.0
 
 MAINTAINER cameronrll@aol.com
 

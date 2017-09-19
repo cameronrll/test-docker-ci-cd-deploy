@@ -4,7 +4,7 @@ jobs:
   build:
     working_directory: /src
     docker:
-      - image: cameronrll/node-docker-example:0.0.1
+      - image: cameronrll/node-docker-example:0.0.2
     steps:
       - checkout
       - restore_cache:
@@ -20,7 +20,7 @@ jobs:
   deploy:
     working_directory: /src
     docker:
-      - image: cameronrll/node-docker-example:0.0.1
+      - image: cameronrll/node-docker-example:0.0.2
     steps:
       - checkout
       - restore_cache:
