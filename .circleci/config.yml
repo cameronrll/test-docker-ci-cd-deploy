@@ -30,6 +30,12 @@ jobs:
       - run:
           name: Deploy script
           command: ./scripts/deploy_dev.sh
+
+  hold:
+    filters:
+      branches:
+        only:
+          - master
 #
 #  deploy_dev:
 #      machine:
