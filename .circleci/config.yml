@@ -30,16 +30,16 @@ jobs:
       - run:
           name: Deploy script
           command: ./scripts/deploy_dev.sh
-
-  deploy_dev:
-      machine:
-        enabled: true
-      working_directory: ~/circleci
-      steps:
-        - checkout
-        - run:
-            name: Deploy script
-            command: ./scripts/deploy_dev.sh
+#
+#  deploy_dev:
+#      machine:
+#        enabled: true
+#      working_directory: ~/circleci
+#      steps:
+#        - checkout
+#        - run:
+#            name: Deploy script
+#            command: ./scripts/deploy_dev.sh
 
 workflows:
   version: 2
@@ -50,14 +50,21 @@ workflows:
         type: approval
         requires:
           - build
-        filters:
-          branches:
-            only:
-              - master
       - deploy_master:
-          requires:
-            - hold
-          filters:
-            branches:
-              only:
-                - master
+        requires:
+          - hold
+#      - hold:
+#        type: approval
+#        requires:
+#          - build
+#        filters:
+#          branches:
+#            only:
+#              - master
+#      - deploy_master:
+#          requires:
+#            - hold
+#          filters:
+#            branches:
+#              only:
+#                - master
