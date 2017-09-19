@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-supervisorctl reread
-supervisorctl update test-node-deploy
-supervisorctl start test-node-deploy
+# TODO: we may need to map ports? dont think so though
+
+docker run -d node-example-build

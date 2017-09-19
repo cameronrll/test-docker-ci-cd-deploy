@@ -1,3 +1,25 @@
+version: 0.0
+os: linux
+
+hooks:
+  #Install docker and start service
+  BeforeInstall:
+    - location: scripts/setup-docker.sh
+      runas: root
+  #Build docker image
+  AfterInstall:
+    - location: scripts/docker-build-image.sh
+      runas: root
+  # run app image
+  ApplicationStart:
+    - location: scripts/start.sh
+      runas: root
+  # stop app image
+  ApplicationStop:
+    - location: scripts/stop.sh
+      runas: root
+
+
 # TODO: come back to this and get it to install docker and move the image to correct folder
 
 #version: 0.0

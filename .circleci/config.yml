@@ -27,27 +27,27 @@ jobs:
     working_directory: ~/circleci
     steps:
       - checkout
-      - run:
-          name: Docker build
-          command: docker build -t="node-example-build" .
-      - run:
-          name: Docker images
-          command: docker images
-      - run:
-          name: pwd
-          command: pwd
-      - run:
-          name: ls
-          command: ls
-      - run:
-          name: ls root
-          command: ls ~
-      - run:
-          name: ls above root
-          command: ls ~/../..
-      - run:
-          name: ls docker images
-          command: ls ~/var/lib/docker
+#      - run:
+#          name: Docker build
+#          command: docker build -t="node-example-build" .
+#      - run:
+#          name: Docker images
+#          command: docker images
+#      - run:
+#          name: pwd
+#          command: pwd
+#      - run:
+#          name: ls
+#          command: ls
+#      - run:
+#          name: ls root
+#          command: ls ~
+#      - run:
+#          name: ls above root
+#          command: ls ~/../..
+#      - run:
+#          name: ls docker images
+#          command: ls ~/../../var/lib/docker
       # TODO: build docker file into an image here!
       # TODO: then put in a folder
       # TODO: push only that folder to s3
