@@ -30,12 +30,6 @@ jobs:
       - run:
           name: Deploy script
           command: ./scripts/deploy_dev.sh
-
-  hold:
-    filters:
-      branches:
-        only:
-          - master
 #
 #  deploy_dev:
 #      machine:
@@ -52,13 +46,10 @@ workflows:
   test-and-deploy:
     jobs:
       - build
-      - hold:
+      - deploy_master:
         type: approval
         requires:
           - build
-      - deploy_master:
-        requires:
-          - hold
 #      - hold:
 #        type: approval
 #        requires:
