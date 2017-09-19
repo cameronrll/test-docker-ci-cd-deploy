@@ -1,16 +1,18 @@
-version: 0.0
-os: linux
-files:
-  - source: package.json
-    destination: /apps/test-node-deploy
-  - source: node_modules
-    destination: /apps/test-node-deploy/node_modules/
-  - source: views
-    destination: /apps/test-node-deploy/views
-  - source: app.js
-    destination: /apps/test-node-deploy
-  - source: scripts/test-node-deploy-server.conf
-    destination: /etc/supervisor/conf.d/
+# TODO: come back to this and get it to install docker and move the image to correct folder
+
+#version: 0.0
+#os: linux
+#files:
+#  - source: package.json
+#    destination: /apps/test-node-deploy
+#  - source: node_modules
+#    destination: /apps/test-node-deploy/node_modules/
+#  - source: views
+#    destination: /apps/test-node-deploy/views
+#  - source: app.js
+#    destination: /apps/test-node-deploy
+#  - source: scripts/test-node-deploy-server.conf
+#    destination: /etc/supervisor/conf.d/
 
 #permissions:
 #  - object: /
@@ -18,16 +20,16 @@ files:
 #    owner: cameronrl
 #    group: test-node-deloy-apps
 
-hooks:
-  BeforeInstall:
-    - location: scripts/clean-deps.sh
-      runas: root
-  AfterInstall:
-    - location: scripts/install-deps.sh
-      runas: root
-  ApplicationStart:
-    - location: scripts/start.sh
-      runas: root
+#hooks:
+#  BeforeInstall:
+#    - location: scripts/clean-deps.sh
+#      runas: root
+#  AfterInstall:
+#    - location: scripts/install-deps.sh
+#      runas: root
+#  ApplicationStart:
+#    - location: scripts/start.sh
+#      runas: root
 #  ApplicationStop:
 #    - location: scripts/stop.sh
 #      runas: root

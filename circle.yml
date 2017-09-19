@@ -1,29 +1,39 @@
-#deployment:
-#  staging:
-#    branch: master
-#    codedeploy:
-#      SimpleNode:
-#        application_root: /src
-#        region: eu-west-2
-#        revision_location:
-#          revision_type: S3
-#          s3_location:
-#            bucket: test-deploy-bucket-cam
-#            key_pattern: test-docker-ci-cd-deploy-{BRANCH}-{SHORT_COMMIT}
-#        deployment_group: NodeDeploymentGroup
+version: 2.0
 
-machine:
-  node:
-    version: 6.11.0
-  enviroment:
-    NODE_ENV: test
+jobs:
+  test:
+    working_directory: /src
+    docker:
+      - image: cameronrll/node-docker-example:0.0.1
+    steps:
+      - checkout
+      - restore_cache:
+        key: deps-cache-{{ checksum "package.json" }}
+      - run:
+        name: Mocha tests
+        command: ./node_modules/.bin/mocha
+      - save_cache:
+        key: deps-cache-{{ checksum "package.json" }}
+        paths:
+          - node_modules
 
-test:
-  override:    
-    - mocha
+  deploy:
+    working_directory: /src
+    docker:
+      - image: cameronrll/node-docker-example:0.0.1
+    steps:
+      - checkout
+      - restore_cache:
+        key: deps-cache-{{ checksum "package.json" }}
+      - run:
+        name: Deploy script
+        command: ./scripts/deploy_dev.sh
 
-deployment:
-  staging:
-    branch: master
-    commands:
-      - scripts/deploy_dev.sh
+workflows:
+  version: 2
+  test-and-deploy:
+    jobs:
+      - test
+      - deploy:
+        requires:
+          - test
