@@ -90,12 +90,12 @@ jsonValue() {
 installAwsCli() {
   if ! typeExists "pip"; then
     h2 "Installing Python PIP"
-    runCommand "sudo apt-get install -y python-pip"
+    runCommand "apt-get install -y python-pip"
     success "Installing PIP (`pip --version`) succeeded"
   fi
 
   h2 "Installing AWS CLI"
-  runCommand "sudo pip install awscli"
+  runCommand "pip install awscli"
 }
 
 vercomp() {
@@ -332,7 +332,7 @@ if [ ! -e "$APP_SOURCE/appspec.yml" ]; then
 fi
 if ! typeExists "zip"; then
   note "Installing zip binaries ..."
-  sudo apt-get install -y zip
+  apt-get install -y zip
   note "Zip binaries installed."
 fi
 runCommand "cd \"$APP_SOURCE\" && zip -rq \"${APP_LOCAL_TEMP_FILE}\" ." \
