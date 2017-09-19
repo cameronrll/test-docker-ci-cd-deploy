@@ -25,6 +25,16 @@ jobs:
       - checkout
       - run:
           name: Deploy script
+          command: ./scripts/deploy_master.sh
+
+  deploy_dev:
+    machine:
+      enabled: true
+    working_directory: ~/circleci
+    steps:
+      - checkout
+      - run:
+          name: Deploy script
           command: ./scripts/deploy_dev.sh
 
 workflows:
@@ -47,3 +57,10 @@ workflows:
                 - master
           requires:
             - hold
+      - deploy_dev:
+          filters:
+            branches:
+              only:
+                - dev
+          requires:
+            - build
