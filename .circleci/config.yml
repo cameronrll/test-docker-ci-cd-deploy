@@ -47,7 +47,6 @@ workflows:
     jobs:
       - build
       - deploy_master:
-        type: approval
         requires:
           - build
 #      - hold:
