@@ -17,10 +17,13 @@ jobs:
           paths:
             - node_modules
 
+#  deploy:
+#    working_directory: /src
+#    docker:
+#      - image: cameronrll/node-docker-example:0.0.2
   deploy:
-    working_directory: /src
-    docker:
-      - image: cameronrll/node-docker-example:0.0.2
+    machine:
+      enabled: true
     steps:
       - checkout
       - restore_cache:
