@@ -3,7 +3,7 @@ os: linux
 
 files:
   - source: ../Dockerfile
-    detination: /apps/node-example
+    destination: /apps/node-example
   - source: ../package.json
     destination: /apps/node-example
   - source: ../app.js
