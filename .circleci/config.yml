@@ -26,8 +26,6 @@ jobs:
       enabled: true
     steps:
       - checkout
-      - restore_cache:
-          key: deps-cache-{{ checksum "package.json" }}
       - run:
           name: Deploy script
           command: ./scripts/deploy_dev.sh
