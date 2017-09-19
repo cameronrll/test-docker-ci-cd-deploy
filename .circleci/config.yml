@@ -34,6 +34,12 @@ jobs:
           name: ls
           command: ls
       - run:
+          name: docker
+          command: docker --version
+      # TODO: build docker file into an image here!
+      # TODO: then put in a folder
+      # TODO: push only that folder to s3
+      - run:
           name: Deploy script
           command: ./scripts/deploy_dev.sh
 
