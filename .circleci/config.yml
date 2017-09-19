@@ -17,10 +17,6 @@ jobs:
           paths:
             - node_modules
 
-#  deploy:
-#    working_directory: /src
-#    docker:
-#      - image: cameronrll/node-docker-example:0.0.2
   deploy_master:
     machine:
       enabled: true
@@ -30,16 +26,6 @@ jobs:
       - run:
           name: Deploy script
           command: ./scripts/deploy_dev.sh
-#
-#  deploy_dev:
-#      machine:
-#        enabled: true
-#      working_directory: ~/circleci
-#      steps:
-#        - checkout
-#        - run:
-#            name: Deploy script
-#            command: ./scripts/deploy_dev.sh
 
 workflows:
   version: 2
@@ -47,8 +33,8 @@ workflows:
     jobs:
       - build
       - deploy_master:
-        requires:
-          - build
+          requires:
+            - build
 #      - hold:
 #        type: approval
 #        requires:
